@@ -3,7 +3,6 @@ title: "My goals for this blog"
 date: 2024-01-27
 tags:
 - blog
-type: blog
 ---
 
 # My goals for this blog

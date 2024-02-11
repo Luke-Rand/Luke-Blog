@@ -1,5 +1,5 @@
 baseURL = "https://blog.lukerand.com/"
-title = "Luke Blog"
+title = "Luke Rand's Blog"
 author = "Luke Rand"
 copyright = "Luke Rand"
 paginate = 10
