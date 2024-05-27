@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Luke Rand&#39;s Blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Luke Rand&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Luke Rand</copyright>
+    <lastBuildDate>Sun, 26 May 2024 13:55:32 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Moved My Blog From Wordpress to Hugo</title>
+      <link>http://localhost:1313/posts/why-i-moved-my-blog-from-wordpress-to-hugo/</link>
+      <pubDate>Sun, 26 May 2024 13:55:32 -0400</pubDate>
+      <guid>http://localhost:1313/posts/why-i-moved-my-blog-from-wordpress-to-hugo/</guid>
+      <description>Why I moved my blog from Wordpress to Hugo Why are you making a big deal about this? You only have one article on your blog! Are you ever going to write about what you&amp;rsquo;re working on, or are you just going to keep re-inventing the wheel?&#xA;Yeah&amp;hellip; Great questions.&#xA;I do have a counter to that last question, though. This move is exactly the kind of project I want to work on and write about.</description>
+    </item>
+    <item>
+      <title>My goals for this blog</title>
+      <link>http://localhost:1313/posts/my-goals-for-this-blog/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/my-goals-for-this-blog/</guid>
+      <description>My goals for this blog I have way too many hobbies, projects, and plans. I would say this is a good problem to have, but things pile up sometimes. I think a big reason for that is that I often get in my own way. The motivation is there but I need something to get excited about in order to get over that initial hump.&#xA;I want to do what I do, and prove that I do it I want to have tangible output when I finish a project.</description>
+    </item>
+  </channel>
+</rss>
