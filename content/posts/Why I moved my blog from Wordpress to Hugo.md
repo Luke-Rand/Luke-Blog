@@ -1,8 +1,12 @@
-+++
-title = 'Why I Moved My Blog From Wordpress to Hugo'
-date = 2024-05-26T13:55:32-04:00
-draft = false
-+++
+---
+title: 'Why I Moved My Blog From Wordpress to Hugo'
+date: 2024-05-26T13:55:32-04:00
+draft: false
+tags:
+  - hugo
+  - wordpress
+  - meta
+---
 
 
 # Why I moved my blog from Wordpress to Hugo

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Self Hosting a Wiki for My TTRPG Group :: Luke Rand&#39;s Blog - Example site for hugo-theme-tailwind</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Self-hosting a wiki for my TTRPG group I&amp;rsquo;ve been a part of an ongoing series of TTRPG (Tabletop Roleplaying Games) for a few years now. I&amp;rsquo;m so fortunate to have a group of friends that are committed enough to keep a game going for this long, and we even play in our office which is pretty cool.
+Of course there&amp;rsquo;s a lot that goes into making these games happen. One thing we do to make this easier is sharing the responsibilities for running the game between all of us."
+/>
+<meta
+  name="keywords"
+  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
+/>
+<meta name="robots" content="noodp" />
+<meta property="og:url" content="http://localhost:1313/posts/self-hosting-a-wiki-for-my-ttrpg-group/">
+  <meta property="og:site_name" content="Luke Rand&#39;s Blog">
+  <meta property="og:title" content="Self Hosting a Wiki for My TTRPG Group">
+  <meta property="og:description" content="Self-hosting a wiki for my TTRPG group I’ve been a part of an ongoing series of TTRPG (Tabletop Roleplaying Games) for a few years now. I’m so fortunate to have a group of friends that are committed enough to keep a game going for this long, and we even play in our office which is pretty cool.
+Of course there’s a lot that goes into making these games happen. One thing we do to make this easier is sharing the responsibilities for running the game between all of us.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-27T17:58:22-04:00">
+    <meta property="article:modified_time" content="2024-05-27T17:58:22-04:00">
+    <meta property="article:tag" content="Wikijs">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Cloudflare">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Self Hosting a Wiki for My TTRPG Group">
+  <meta name="twitter:description" content="Self-hosting a wiki for my TTRPG group I’ve been a part of an ongoing series of TTRPG (Tabletop Roleplaying Games) for a few years now. I’m so fortunate to have a group of friends that are committed enough to keep a game going for this long, and we even play in our office which is pretty cool.
+Of course there’s a lot that goes into making these games happen. One thing we do to make this easier is sharing the responsibilities for running the game between all of us.">
+
+
+<link rel="canonical" href="http://localhost:1313/posts/self-hosting-a-wiki-for-my-ttrpg-group/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.990d326724754f27d5d9e8d3b865873e6b1c3f7e92dcc20f80375591db4b9835.css">
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+</head>
+<body class="flex flex-col min-h-screen w-full bg-slate-50 dark:bg-gray-800">
+  <header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.webp" alt="logo">
+    </a>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-sm md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="/about/" title="About">About</a>
+        </li>
+      
+    
+        <li id="posts" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
+            href="/posts/" title="Posts">Posts</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="flex-none md:hidden">
+    <a href="/search/" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg" aria-controls="navbar-menu" aria-expanded="false">
+      <span class="sr-only">Search</span>
+      <i class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+</svg>
+
+      </i>
+    </a>
+  </div>
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="flex items-center px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="group flex flex-row gap-1 justify-center h-8 px-1 rounded-full bg-white dark:bg-gray-700">
+        <i class="h-6 w-6 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:group-[]:invisible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+        </i>
+        <i class="h-6 w-6 flex-none rounded-full place-self-center invisible peer-checked:group-[]:visible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+        </i>
+      </div>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col gap-y-3 p-6 mt-6 mx-2 md:mx-0 rounded-lg shadow-md bg-white dark:bg-gray-700">
+    <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+      <a href="/posts/self-hosting-a-wiki-for-my-ttrpg-group/">Self Hosting a Wiki for My TTRPG Group</a>
+    </h1>
+
+    
+    
+  <ul class="flex flex-row flex-wrap text-slate-500 dark:text-slate-300">
+    
+    
+      
+      <li>
+        <a href="/tags/wikijs/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">wikijs</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/docker/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">docker</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/cloudflare/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">cloudflare</span>
+        </a>
+      </li>
+      
+    
+  </ul>
+
+
+
+    <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  
+  
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
+   <path d="M16 3v4"></path>
+   <path d="M8 3v4"></path>
+   <path d="M4 11h16"></path>
+   <path d="M11 15h1"></path>
+   <path d="M12 15v3"></path>
+</svg>
+
+    </i>
+    <time datetime="2024-05-27T17:58:22-04:00">
+      2024-05-27
+    </time>
+  </div>
+
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      7 minutes to read
+    </span>
+  </div>
+</div>
+
+
+    
+      
+      <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+        <h2>Table of Contents</h2>
+        <aside><nav id="TableOfContents">
+  <ul>
+    <li><a href="#my-requirements">My requirements</a></li>
+    <li><a href="#options-for-hosting-notes">Options for hosting notes</a>
+      <ul>
+        <li><a href="#github">Github</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#wikijs">Wiki.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#hosting-wikijs">Hosting Wiki.js</a>
+      <ul>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+      </ul>
+    </li>
+    <li><a href="#whats-next">What&rsquo;s next</a>
+      <ul>
+        <li><a href="#backups">Backups</a></li>
+        <li><a href="#clustering">Clustering</a></li>
+        <li><a href="#elasticsearch">Elasticsearch</a></li>
+        <li><a href="#postgresql">PostgreSQL</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+      </section>
+      
+    
+
+    <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+      <h1 id="self-hosting-a-wiki-for-my-ttrpg-group">Self-hosting a wiki for my TTRPG group</h1>
+<p>I&rsquo;ve been a part of an ongoing series of TTRPG (Tabletop Roleplaying Games) for a few years now. I&rsquo;m so fortunate to have a group of friends that are committed enough to keep a game going for this long, and we even play in our office which is pretty cool.</p>
+<p>Of course there&rsquo;s a lot that goes into making these games happen. One thing we do to make this easier is sharing the responsibilities for running the game between all of us. Those kinds of things include ordering food, playing music, running the game board display, and taking notes. That last responsibility is mine.</p>
+<p>For the longest time, I was taking these notes in <a href="https://obsidian.md/" target="_blank" rel="noopener">Obsidian</a>
+ and backing them up to a public <a href="https://github.com/Luke-Rand/Blackstar-Campaign-Notes" target="_blank" rel="noopener">Github repository</a>
+. I foolishly thought that instructing people to visit my Github profile would be a sufficient way to share these notes. As it turned out, that was a terrible experience.</p>
+<p>So because of this I set out to find the best way to host my notes, and maybe even enable my fellow party members to make contributions as well.</p>
+<h2 id="my-requirements">My requirements</h2>
+<p>Need to have:</p>
+<ul>
+<li>Publishing to the public internet</li>
+<li>Ability for other (authorized!) people to make contributions</li>
+<li>Ability to drop my existing notes in place from Obsidian</li>
+<li>Self-hosted</li>
+<li>Secure</li>
+</ul>
+<p>Nice to have:</p>
+<ul>
+<li>Markdown editor</li>
+<li>Good design</li>
+<li>Docker container</li>
+<li>Open-source with good community</li>
+</ul>
+<h2 id="options-for-hosting-notes">Options for hosting notes</h2>
+<h3 id="github">Github</h3>
+<p>I&rsquo;ve tested this option, and it failed. You really need to be a technical person to understand how to effectively view markdown files on Github. And even then, you really should also have a good working knowledge of how Github works as well. Markdown files straight from Obsidian aren&rsquo;t always formatted correctly too. This option is out.</p>
+<blockquote>
+<p><div class="not-prose">
+<figure>
+    <img src="https://i.giphy.com/WRQBXSCnEFJIuxktnw.webp"
+      alt="" 
+      loading="lazy"
+    >
+  </figure></div>
+
+<em>Trying to figure out what happened last session but I have to use Github</em></p>
+</blockquote>
+<h3 id="hugo">Hugo</h3>
+<p><div class="not-prose">
+<figure>
+    <img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true"
+      alt="Hugo" 
+      loading="lazy"
+    >
+  </figure></div>
+
+I really wanted this option to work. As you may know, this blog is made using Hugo (find out more about that [here](Why I moved my blog from Wordpress to Hugo.md)). The obvious downside to using Hugo is that I would be the only one able to publish the campaign notes. And even worse still, the process for making these notes available would go like this:</p>
+<ol>
+<li>Take notes in Obsidian</li>
+<li>Copy notes to Hugo campaign notes directory</li>
+<li>Commit changes for the hugo site</li>
+<li>Github Actions runs automatically, publishing the site after about ~2-3 minutes</li>
+<li>Notes are available on the Github Pages site</li>
+</ol>
+<p>That&rsquo;s just not going to work.</p>
+<h3 id="wikijs">Wiki.js</h3>
+<p><div class="not-prose">
+<figure>
+    <img src="https://camo.githubusercontent.com/522006c76f01f78adaa031157f6a1fbc5264b2a9dfc0b454c562006cf6047e90/68747470733a2f2f7374617469632e7265717561726b732e696f2f6c6f676f2f77696b696a732d66756c6c2d6461726b7468656d652e737667"
+      alt="Wiki.js" 
+      loading="lazy"
+    >
+  </figure></div>
+
+I knew from the jump that a wiki of some sort would be my best bet. With a wiki service, you can reasonably expect it to support multiple maintainers, markdown support, and a interconnected set up pages with backlinks. But the best part is that my users (party members) don&rsquo;t need to worry about any of that! At a maximum, all they need to do is visit the site and read any page to get value from it.</p>
+<p>I&rsquo;ve used products like <a href="https://tiddlywiki.com/" target="_blank" rel="noopener">TiddlyWiki</a>
+ in the past. That worked well for the simple application I was using it for at the time. Since then though, many wiki services have become available. In my search, I eventually found <a href="https://github.com/requarks/wiki" target="_blank" rel="noopener">Wiki.js by Requarks</a>
+. This product checked all of the need-to-haves as well as nice-to-haves that I had on my list. I could self-host Wiki.js in my homelab as a Docker container. It even supports Markdown and has a very robust set of features for managing users.</p>
+<p>Let&rsquo;s get started!</p>
+<h2 id="hosting-wikijs">Hosting Wiki.js</h2>
+<h3 id="docker">Docker</h3>
+<p>I started by looking on <a href="https://hub.docker.com" target="_blank" rel="noopener">Dockerhub</a>
+ for a community image to use for my deployment. I was happy to see that there was an <a href="https://hub.docker.com/r/linuxserver/wikijs" target="_blank" rel="noopener">actively maintained image</a>
+ from linuxserver.io. A lot of other services in my homelab are run on images provided by linuxserver.io so I trusted that their Wiki.js image would be just as reliable.</p>
+<p>I started by putting together a <code>dockercompose.yml</code> file for the <code>lscr.io/linuxserver/wikijs:latest</code> image. I kept most of their sample docker compose file the same, except for the following changes:</p>
+<ul>
+<li>Changing <code>TZ</code> to my local timezone</li>
+<li>Mapping my local persistent storage</li>
+<li>Adding my custom <code>cloudflared</code> docker network for communicating with my Cloudflare Tunnel container (more on that below)</li>
+</ul>
+<p><div class="not-prose">
+<figure>
+    <img src="/images/wikijs/portainer.png"
+      alt="Portainer" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>For now, I am deploying Wiki.js using a sqlite database. It&rsquo;s important to note that when Wiki.js 3.0 eventually comes out, it will require PostgreSQL. Because of this, my current deployment is not future-proof, but it does at least deliver a minimum viable product.</p>
+<p>I then opened Portainer on my dedicated Docker host for external-facing services. This host is on a network segment that can&rsquo;t make outbound connections to other hosts on my local network. From there, I used the Stacks feature of Portainer to deploy my docker compose file. I&rsquo;m using Stacks because it&rsquo;s handy for deploying an entire suite of microservices from a single compose file. Eventually, I plan to deploy a dedicated PostgreSQL database for this wiki, as well as a dedicated Elasticsearch services. Keep an eye out for those blog posts in the future!</p>
+<p>After copy/pasting my docker compose file into the Portainer Stacks editor and clicking deploy, the site went up almost instantly. <strong>Success!</strong> I did a few little edits to make sure this was going to work for me. When I was comfortable with going forward, I moved on to the next steps.</p>
+<h3 id="cloudflare">Cloudflare</h3>
+<p>Being that this is an externally facing web service, I wanted to minimize my attack surface as much as possible. No RPG wiki is worth the security of my home network. That meant that I definitely wasn&rsquo;t going to be doing any port forwarding for this project. I opted instead to use Cloudflare&rsquo;s Zero Trust networking service: <a href="https://www.cloudflare.com/products/tunnel/" target="_blank" rel="noopener">Cloudflare Tunnel</a>
+.</p>
+<p>Cloudflare Tunnel allows me to host services on my local network without exposing that service directly to the internet. Everything going to my web server is proxied through Cloudflare first. For a while now, I&rsquo;ve had a Cloudflare Tunnel node in the same network segment as my hosts for external services. You can see how this is done in the diagram below.
+<div class="not-prose">
+<figure>
+    <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/5uLXEYIlWL2EyMuugX2H4U/916ebdad56ed34cdb3161bd471e95ec5/argo-tunnel-diagram.svg"
+      alt="Cloudflare Tunnel diagram" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>I started by going to Cloudflare&rsquo;s Zero Trust portal, where my existing Cloudflared node is set up. I then used the <code>Create a tunnel</code> button to input the specifics of my internal web server. Here, I input the hostname of my Docker server host, as well as the port that Wiki.js is being hosted on. Then, I assigned the route that should be used to access this service. For me, I will be using rpgwiki.lukerand.com so I put that in. This automatically creates a DNS entry for my lukerand.com domain. Almost instantly, you could visit the Wiki.js instance by going to <a href="https://rpgwiki.lukerand.com" target="_blank" rel="noopener">rpgwiki.lukerand.com</a>
+. <strong>Double success!</strong></p>
+<p><div class="not-prose">
+<figure>
+    <img src="/images/wikijs/homepage.png"
+      alt="My Wiki.js home page" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<h3 id="backups">Backups</h3>
+<p>Right now, I&rsquo;m using Wiki.js&rsquo;s local filesystem backup feature. Eventually, I think I&rsquo;ll want to look into the S3 storage option. That&rsquo;s a technology that I want to learn more about so I think this application would be a great excuse to do that.
+<div class="not-prose">
+<figure>
+    <img src="/images/wikijs/storageSettings.png"
+      alt="Storage Settings" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h3 id="clustering">Clustering</h3>
+<p>Right now, Wiki.js is being hosted on a single Docker server. This is clearly more than enough for the kind of traffic I&rsquo;m serving, but this is another example of a technology I want to learn. So why not give that a shot at some point?</p>
+<h3 id="elasticsearch">Elasticsearch</h3>
+<p>Wiki.js supports a number of &ldquo;Search Engine&rdquo; products in the admin settings. One of these is Elasticsearch. We are currently exploring the application of Elasticsearch at my work, so I see this as a great way to get familiar with that technology as self-study.
+<div class="not-prose">
+<figure>
+    <img src="/images/wikijs/searchSettings.png"
+      alt="Search settings" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p>On Requark&rsquo;s blog for Wiki.js, they have <a href="https://beta.js.wiki/blog/2021-wiki-js-3-going-full-postgresql" target="_blank" rel="noopener">an article</a>
+ about requiring PostgreSQL in version 3 of Wiki.js. That means that my current use of a sqlite database eventually won&rsquo;t be supported.</p>
+
+    </article>
+
+    
+
+
+
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2023 - 2024 Luke Rand
+    
+  </div>
+  
+</section>
+
+  </footer>
+  <script src="/main.js"></script>
+
+
+
+
+</body>
+</html>

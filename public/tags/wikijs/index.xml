@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wikijs on Luke Rand&#39;s Blog</title>
+    <link>http://localhost:1313/tags/wikijs/</link>
+    <description>Recent content in Wikijs on Luke Rand&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Luke Rand</copyright>
+    <lastBuildDate>Mon, 27 May 2024 17:58:22 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/wikijs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self Hosting a Wiki for My TTRPG Group</title>
+      <link>http://localhost:1313/posts/self-hosting-a-wiki-for-my-ttrpg-group/</link>
+      <pubDate>Mon, 27 May 2024 17:58:22 -0400</pubDate>
+      <guid>http://localhost:1313/posts/self-hosting-a-wiki-for-my-ttrpg-group/</guid>
+      <description>Self-hosting a wiki for my TTRPG group I&amp;rsquo;ve been a part of an ongoing series of TTRPG (Tabletop Roleplaying Games) for a few years now. I&amp;rsquo;m so fortunate to have a group of friends that are committed enough to keep a game going for this long, and we even play in our office which is pretty cool.&#xA;Of course there&amp;rsquo;s a lot that goes into making these games happen. One thing we do to make this easier is sharing the responsibilities for running the game between all of us.</description>
+    </item>
+  </channel>
+</rss>
