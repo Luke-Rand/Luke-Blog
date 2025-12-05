@@ -13,28 +13,37 @@ tags:
 
 
 I recently built a new rig intended to serve two distinct functions. It needs to be a high-end gaming machine capable of crushing titles at 4K, but I also wanted it to serve as a headless inference node for my local LLM stack, powered by Ollama.
+
 The challenge is balancing Power and VRAM.
+
 My GPU, the Radeon RX 7900 XTX, features a massive 24GB of VRAM—excellent for local LLMs. However, high-end AMD cards can have high power draw at idle, and running an LLM server 24/7 on a "High Performance" power plan is inefficient. Conversely, I didn't want Ollama reserving 20GB of VRAM when I tried to launch Cyberpunk.
 Here is how I used PowerShell to create a seamless dual-mode experience without rebooting, integrating my gaming PC into my Kubernetes homelab.
-The Hardware
+
+## The Hardware
 The build is housed in a Sliger CX4170a rackmount case, sitting in my server rack but connected to my desk via long active cables.
 	•	CPU: AMD Ryzen 7 7800X3D
 	•	GPU: XFX Speedster MERC 310 Radeon RX 7900 XTX (24GB VRAM)
 	•	RAM: 32GB DDR5-5600
 	•	OS: Windows 11 Pro
-The Architecture
+
+## The Architecture
 My setup separates the interface from the compute. I run Open WebUI on a separate Kubernetes cluster. I didn't want the heavy WebUI container running on my gaming PC.
+
 Instead, the Gaming PC runs Ollama and exposes it to the network (OLLAMA_HOST=0.0.0.0). The Kubernetes cluster treats my Gaming PC simply as an external API endpoint.
 	•	Kubernetes Pod: Handles the UI, chat history, and Speech-to-Text (Whisper).
 	•	Gaming PC: Handles the raw token generation (inference).
-The Problem: Friction
+
+## The Problem: Friction
 I needed two distinct states:
 	1	LLM Mode: The PC needs to be "awake" enough to answer API calls, but the monitors should be off, and the CPU should be downclocked to save power. Crucially, Windows cannot go to sleep, or the API connection drops.
 	2	Gaming Mode: I need maximum power delivery, and I need Ollama to shut down completely. If Ollama is running, it reserves VRAM, which kills performance if I launch a game.
-The Solution: PowerShell State Management
+
+## The Solution: PowerShell State Management
 I created two PowerShell scripts linked to desktop shortcuts to handle the transition.
 1. The "LLM Mode" Script
 This script switches the power plan to "Power Saver," but modifies the config to ensure the system never sleeps. It also forces the monitors to turn off after 1 minute to act as a "headless" server, saving ~100W of idle power.
+
+
 # SwitchTo-LLM.ps1  # 1. Switch to Power Saver Plan (Reduces CPU boost/idle power) # Note: Replace GUID with your specific Power Saver ID found via 'powercfg /list' powercfg /setactive a1841308-3541-4fab-bc81-f71556f20b4a  # 2. VITAL: Prevent System Sleep # "standby-timeout-ac 0" sets Sleep to NEVER while plugged in. powercfg /change standby-timeout-ac 0  # 3. Headless Mode # "monitor-timeout-ac 1" turns the screen off after 1 minute. powercfg /change monitor-timeout-ac 1  # 4. Ensure Ollama is running $ollamaProcess = Get-Process "ollama_app" -ErrorAction SilentlyContinue if (-not $ollamaProcess) {     Write-Host "Starting Ollama Server..." -ForegroundColor Cyan     Start-Process "$env:LOCALAPPDATA\Programs\Ollama\ollama app.exe" -WindowStyle Hidden } 
 2. The "Gaming Mode" Script
 This script does the opposite. It terminates the Ollama process to instantly free up VRAM and sets the power plan back to High Performance.
