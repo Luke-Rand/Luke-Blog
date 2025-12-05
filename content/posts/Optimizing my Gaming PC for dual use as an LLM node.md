@@ -1,12 +1,16 @@
 ---
-title: 'Dual Purpose: Optimizing a 7900 XTX Gaming PC as a Low-Power LLM Node' date: 2025-12-05T16:51:32-05:00 draft: false tags:
-	•	llm
-	•	ollama
-	•	hardware
-	•	powershell
-	•	homelab
-	•	amd
+title: 'Dual Purpose: Optimizing a 7900 XTX Gaming PC as a Low-Power LLM Node'
+date: 2025-12-05T16:51:32-05:00
+draft: false
+tags:
+  - llm
+  - ollama
+  - hardware
+  - powershell
+  - homelab
+  - amd
 ---
+
 
 I recently built a new rig intended to serve two distinct functions. It needs to be a high-end gaming machine capable of crushing titles at 4K, but I also wanted it to serve as a headless inference node for my local LLM stack, powered by Ollama.
 The challenge is balancing Power and VRAM.
