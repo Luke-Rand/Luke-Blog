@@ -1,6 +1,6 @@
 ---
 title: 'Scaling Up: Building a Bulletproof K3s Cluster on Proxmox'
-date: 2025-12-17T14:00:00-05:00
+date: 2025-12-17T12:00:00-05:00
 draft: false
 tags:
   - proxmox
